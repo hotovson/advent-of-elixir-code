@@ -9,3 +9,7 @@ IO.puts "How many total feet of ribbon should they order? " <> Integer.to_string
 input = File.read! "lib/inputs/day_03.txt"
 IO.puts "How many houses receive at least one present? " <> Integer.to_string(Day03.houses_with_present(input))
 IO.puts "This year, how many houses receive at least one present? " <> Integer.to_string(Day03.houses_with_present_with_robo_santa(input))
+
+input = "iwrupvqb"
+IO.puts "The lowest positive number for Santa is (5 zeros) " <> Integer.to_string(Day04.crack_secret_key(input))
+IO.puts "The lowest positive number for Santa is (6 zeros) " <> Integer.to_string(Day04.crack_secret_key(input, 6))
