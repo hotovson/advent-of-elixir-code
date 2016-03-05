@@ -1,13 +1,13 @@
 defmodule Day01 do
   def floor(input) do
     input
-    |> String.codepoints
+    |> String.graphemes
     |> Enum.reduce(0, &floor_reducer/2)
   end
 
   def steps_to_basement(input) do
     {_, steps} = input
-    |> String.codepoints
+    |> String.graphemes
     |> Enum.reduce_while({0, 0}, &step_reducer/2)
 
     steps
@@ -22,10 +22,14 @@ defmodule Day01 do
   end
 
   defp step_reducer(cmd, {floor, step}) do
-    if (floor == -1) do
+    if (floor == basement_floor) do
       {:halt, {floor, step}}
     else
       {:cont, {floor_reducer(cmd, floor), step + 1}}
     end
+  end
+
+  defp basement_floor do
+    -1
   end
 end
